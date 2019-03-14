@@ -1,0 +1,7 @@
+#Nubia add start, for sample
+#import init.sampletest.rc
+#Nubia add end
+
+# Nubia add start, import init.woodpecker.rc
+import /init.woodpecker.rc
+# Nubia add end

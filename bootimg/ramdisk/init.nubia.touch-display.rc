@@ -1,0 +1,74 @@
+#import this file in .rc file or just copy them
+
+
+#nubia, touch&display node start
+on post-fs-data
+#touch
+	mkdir /data/tp 0775 system system
+	symlink /sys/class/input/input1/ic_ver /data/tp/ic_ver
+	symlink /sys/class/input/input1/reset /data/tp/reset
+	symlink /sys/class/input/input1/f54/ic_detect /data/tp/ic_detect
+	symlink /sys/class/input/input1/start_update /data/tp/start_update
+	chown system system /sys/class/input/input1/wake_gesture
+	symlink /sys/class/input/input1/wake_gesture /data/tp/easy_wakeup_gesture
+	chown system system /sys/class/input/input1/palm_sleep
+	symlink /sys/class/input/input1/palm_sleep /data/tp/easy_sleep_palm
+	chown system system /sys/class/input/input1/f54/read_rt2
+	chown system system /sys/class/input/input1/f54/read_rt3
+	symlink /sys/class/input/input1/f54/read_rt2 /data/tp/read_rt2
+	symlink /sys/class/input/input1/f54/read_rt3 /data/tp/read_rt3
+	write /sys/class/input/input1/start_update 1
+#button
+	symlink /sys/class/input/input2/ic_ver /data/tp/ic_ver_btn
+	symlink /sys/class/input/input2/reset /data/tp/reset_btn
+	symlink /sys/class/input/input2/f54/ic_detect /data/tp/ic_detect_btn
+	chown system system /sys/class/input/input2/f54/read_rt2
+	chown system system /sys/class/input/input2/f54/read_rt3
+	chown system system /sys/class/input/input2/f54/read_btn_delta
+	chown system system /sys/class/input/input2/f54/read_btn_raw
+	symlink /sys/class/input/input2/f54/read_rt2 /data/tp/read_btn_rt2
+	symlink /sys/class/input/input2/f54/read_rt3 /data/tp/read_btn_rt3
+	symlink /sys/class/input/input2/f54/read_btn_delta /data/tp/read_btn_delta
+	symlink /sys/class/input/input2/f54/read_btn_raw /data/tp/read_btn_raw
+	write /sys/class/input/input2/start_update 1
+#display
+	chown system system /sys/kernel/lcd_enhance/colortmp
+	chown system system /sys/kernel/lcd_enhance/cabc
+
+	#display preference
+	on property:persist.sys.image.enhance=w
+	    write /sys/kernel/lcd_enhance/saturation 24
+
+	on property:persist.sys.image.enhance=n
+	    write /sys/kernel/lcd_enhance/saturation 25
+
+	on property:persist.sys.image.enhance=i
+	    write /sys/kernel/lcd_enhance/saturation 26
+
+	on property:persist.sys.image.colortmp=w
+	    write /sys/kernel/lcd_enhance/colortmp 24
+
+	on property:persist.sys.image.colortmp=n
+	    write /sys/kernel/lcd_enhance/colortmp 25
+
+	on property:persist.sys.image.colortmp=c
+	    write /sys/kernel/lcd_enhance/colortmp 26
+
+	#for lcd colortmp continuous
+	on property:persist.sys.lcd.colortmp=*
+	   write /sys/kernel/lcd_enhance/colortmp ${persist.sys.lcd.colortmp}
+
+	on property:persist.sys.image.cabc=f
+	    write /sys/kernel/lcd_enhance/cabc 23
+
+	on property:persist.sys.image.cabc=l
+	    write /sys/kernel/lcd_enhance/cabc 24
+
+	on property:persist.sys.image.cabc=m
+	    write /sys/kernel/lcd_enhance/cabc 25
+
+	on property:persist.sys.image.cabc=h
+	    write /sys/kernel/lcd_enhance/cabc 26
+
+#nubia, touch&display node end
+

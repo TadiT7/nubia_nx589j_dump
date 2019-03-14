@@ -1,0 +1,12 @@
+# Copyright (c) 2016, nubia. All rights reserved.
+#
+# init.breathlight.rc
+# For all project les config .
+
+on boot
+	#ADD BY NUBIA FOR BREATHLED
+        chown system system /sys/class/leds/nubia_led/outn
+        chown system system /sys/class/leds/nubia_led/grade_parameter
+        chown system system /sys/class/leds/nubia_led/fade_parameter
+        chown system system /sys/class/leds/nubia_led/blink_mode
+	#ADD END BY NUBIA FOR BREATHLED

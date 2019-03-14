@@ -1,0 +1,39 @@
+#Nubia add for bt test
+service btCommand /system/bin/btCommand
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:persist.service.btcmd=1
+    start btCommand
+
+on property:persist.service.btcmd=0
+    stop  btCommand
+
+service wirelesstest /system/bin/wirelesstest
+    class main
+    socket wirelesstest stream 600 system system
+    disabled
+    oneshot
+
+on property:sys.wltest.enable=1
+    start wirelesstest
+
+on property:sys.wltest.enable=0
+    stop wirelesstest
+
+service nbftmd /system/bin/ftmdaemon -n
+    class main
+    user root
+    group bluetooth net_bt_admin misc net_bt_stack qcom_diag net_bt
+    disabled
+    oneshot
+
+on property:persist.service.ftmdaemon=1
+    start nbftmd
+
+on property:persist.service.ftmdaemon=0
+    stop nbftmd
+#Nubia add end

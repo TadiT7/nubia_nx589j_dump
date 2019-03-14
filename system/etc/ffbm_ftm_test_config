@@ -1,0 +1,191 @@
+#Copyright (c) 2015-2016 Qualcomm Technologies, Inc.
+#All Rights Reserved.
+#Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+tc 1
+#Headset Mic to Speaker loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+DEC1 MUX:ADC2
+ADC2 Volume:4
+ADC2 MUX:INP2
+RX2 MIX1 INP1:RX2
+RX2 Digital Volume:84
+RDAC2 MUX:RX2
+HPHR:Switch
+Ext Spk Switch:On
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+Ext Spk Switch:Off
+DEC1 MUX:ZERO
+ADC2 MUX:ZERO
+ADC2 Volume:0
+RX2 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+HPHR:ZERO
+RX2 Digital Volume:0
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+tc 11
+#HeadSet Mic to  Speakers AFE loopback   close spk
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+disable
+Ext Spk Switch:Off
+DEC1 MUX:ZERO
+ADC2 MUX:ZERO
+ADC2 Volume:0
+RX2 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+HPHR:ZERO
+
+RX2 Digital Volume:0
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+tc 2
+#HeadSet Mic to Handset Speakers AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+DEC1 MUX:ADC2
+ADC2 MUX:INP2
+ADC2 Volume:6
+IIR1 INP1 MUX:DEC1
+RX1 MIX1 INP1:RX1
+RDAC2 MUX:RX1
+EAR_S:Switch
+EAR PA Boost:ENABLE
+RX1 Digital Volume:84
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+
+disable
+DEC1 MUX:ZERO
+ADC2 MUX:ZERO
+RX1 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+EAR_S:ZERO
+EAR PA Boost:DISABLE
+ADC2 Volume:0
+RX1 Digital Volume:0
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+tc 22
+#headset mic to rec                       close rec
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+disable
+DEC1 MUX:ZERO
+ADC2 MUX:ZERO
+RX1 MIX1 INP1:ZERO
+RDAC2 MUX:ZERO
+EAR_S:ZERO
+EAR PA Boost:DISABLE
+ADC2 Volume:0
+RX1 Digital Volume:0
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+tc 3
+# AMIC1 to Headset Speakers AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+DEC1 MUX:ADC1
+ADC1 Volume:4
+RX1 MIX1 INP1:RX1
+RX2 MIX1 INP1:RX2
+RX1 Digital Volume:84
+RX2 Digital Volume:84
+RDAC2 MUX:RX2
+HPHL:Switch
+HPHR:Switch
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+disable
+DEC1 MUX:ZERO
+ADC1 Volume:0
+RX1 MIX1 INP1:ZERO
+RX2 MIX1 INP1:ZERO
+RX1 Digital Volume:0
+RX2 Digital Volume:0
+RDAC2 MUX:ZERO
+HPHL:ZERO
+HPHR:ZERO
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+tc 33
+# AMIC1 to Headset Speakers AFE loopback   close mic1
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+disable
+DEC1 MUX:ZERO
+ADC1 Volume:0
+RX1 MIX1 INP1:ZERO
+RX2 MIX1 INP1:ZERO
+RX1 Digital Volume:0
+RX2 Digital Volume:0
+RDAC2 MUX:ZERO
+HPHL:ZERO
+HPHR:ZERO
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+tc 4
+# AMIC3 to Headset Speakers AFE loopback
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+enable
+DEC1 MUX:ADC2
+ADC2 MUX:INP3
+ADC3 Volume:6
+RX1 MIX1 INP1:RX1
+RX2 MIX1 INP1:RX2
+RX1 Digital Volume:84
+RX2 Digital Volume:84
+RDAC2 MUX:RX2
+HPHL:Switch
+HPHR:Switch
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:1
+disable
+DEC1 MUX:ZERO
+ADC2 MUX:ZERO
+ADC3 Volume:0
+RX1 MIX1 INP1:ZERO
+RX2 MIX1 INP1:ZERO
+RX1 Digital Volume:0
+RX2 Digital Volume:0
+RDAC2 MUX:ZERO
+HPHL:ZERO
+HPHR:ZERO
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0
+
+tc 44
+# AMIC2 to Headset Speakers AFE loopback   close mic2
+!AfeLoop
+Txdevice:11
+Rxdevice:5
+
+disable
+DEC1 MUX:ZERO
+ADC2 MUX:ZERO
+ADC3 Volume:0
+RX1 MIX1 INP1:ZERO
+RX2 MIX1 INP1:ZERO
+RX1 Digital Volume:0
+RX2 Digital Volume:0
+RDAC2 MUX:ZERO
+HPHL:ZERO
+HPHR:ZERO
+PRI_MI2S_RX Port Mixer TERT_MI2S_TX:0

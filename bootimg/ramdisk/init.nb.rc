@@ -1,0 +1,17 @@
+# Copyright (c) 2016, nubia. All rights reserved.
+#
+# init.nb.rc
+# For all nubia projects defined in device/zte
+
+import init.nubia.platform.rc
+import init.nubia.ffbm.rc
+import init.project.rc
+import init.dmapp.rc
+import init.nubia.usb.rc
+import init.nb.nfc.rc
+
+import init.nubia.extend.usb.rc
+import init.breathlight.rc
+import init.nb.sensor.rc
+import init.nb.core.rc
+import init.nubia.wlan.rc

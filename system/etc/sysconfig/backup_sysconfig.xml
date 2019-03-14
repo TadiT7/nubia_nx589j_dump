@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+<!-- Whitelist of what components are permitted as backup data transports. The 'service' attribute here is a flattened ComponenetName string. -->
+<backup-transport-whitelisted-service service="android/com.android.internal.backup.LocalTransportService"/>
+</config>

@@ -1,0 +1,21 @@
+# Copyright (c) 2017, nubia. All rights reserved.
+#
+# init.nubia.wlan.rc
+
+#nubia add for cnss log system
+#set cnss_diag Services and cnss log system service
+
+service cnss_diag /system/bin/cnss_diag -f -q
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+
+service cnssLogsystem /system/bin/cnssLogsystem
+    class main
+    user root
+    group root
+    disabled
+    oneshot
+#nubia add end

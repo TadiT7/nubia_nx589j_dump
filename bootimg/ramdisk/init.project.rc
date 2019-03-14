@@ -1,0 +1,21 @@
+# Copyright (c) 2016, nubia. All rights reserved.
+#
+# init.project.rc
+# For the specific project only
+
+#nubia, touch&display start
+import init.nubia.touch-display.rc
+#nubia, touch&display end
+
+on init
+    #nubia add for bootsound
+    #on property:sys.zte.boot.sound.completed=1
+    #    start audioserver
+
+    chmod 0664 /system/media/audio/ui/bootup.wav
+    chmod 0755 /system/bin/bootsound.sh
+    #nubia add end
+#Add texfat.ko Module
+on boot
+    insmod /system/lib/modules/texfat.ko
+

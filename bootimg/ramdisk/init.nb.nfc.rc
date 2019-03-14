@@ -1,0 +1,7 @@
+# ADDED BY ZTEMT
+# add the nfc sysfs permission
+on boot
+      mkdir /data/nfc 0770 nfc nfc
+      chmod 0660 /dev/bcm2079x
+      chown nfc nfc /dev/bcm2079x
+# ADDED BY ZTEMT Lvsen END
